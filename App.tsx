@@ -7,7 +7,7 @@
 import React, { useState, useEffect } from 'react';
 import { HeroScene, DigitalNetworkScene } from './components/QuantumScene';
 import { DigitalVisibilityDiagram, GrowthPathDiagram, EngagementMetricDiagram } from './components/Diagrams';
-import { ArrowDown, Menu, X, Smartphone, Globe, Users, Zap } from 'lucide-react';
+import { ArrowDown, Menu, X, Smartphone, Globe, Users, Zap, Cloud, Calendar, ShieldCheck, Share2, Image, BookOpen } from 'lucide-react';
 
 const FacilitatorCard = ({ name, role, delay }: { name: string, role: string, delay: string }) => {
   return (
@@ -62,7 +62,9 @@ const App: React.FC = () => {
             <a href="#introduccion" onClick={scrollToSection('introduccion')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Introducción</a>
             <a href="#estrategia" onClick={scrollToSection('estrategia')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Estrategia</a>
             <a href="#impacto" onClick={scrollToSection('impacto')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Impacto</a>
+            <a href="#agenda" onClick={scrollToSection('agenda')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Agenda</a>
             <a href="#facilitadores" onClick={scrollToSection('facilitadores')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Equipo</a>
+
             <button
               onClick={() => window.open('https://wa.me/', '_blank')}
               className="px-5 py-2 bg-stone-900 text-white rounded-full hover:bg-stone-800 transition-colors shadow-sm cursor-pointer"
@@ -83,6 +85,7 @@ const App: React.FC = () => {
           <a href="#introduccion" onClick={scrollToSection('introduccion')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Introducción</a>
           <a href="#estrategia" onClick={scrollToSection('estrategia')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Estrategia</a>
           <a href="#impacto" onClick={scrollToSection('impacto')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Impacto</a>
+          <a href="#agenda" onClick={scrollToSection('agenda')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Agenda</a>
           <a href="#facilitadores" onClick={scrollToSection('facilitadores')} className="hover:text-nobel-gold transition-colors cursor-pointer uppercase">Equipo</a>
           <button
             onClick={() => { setMenuOpen(false); window.open('https://wa.me/', '_blank'); }}
@@ -246,7 +249,56 @@ const App: React.FC = () => {
           </div>
         </section>
 
+        {/* Agenda Section */}
+        <section id="agenda" className="py-24 bg-white border-t border-stone-200">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <div className="inline-block mb-3 text-xs font-bold tracking-widest text-stone-500 uppercase">Cronograma del Taller</div>
+              <h2 className="font-serif text-3xl md:text-5xl mb-4 text-stone-900">Agenda de la Jornada</h2>
+              <p className="text-stone-500 max-w-2xl mx-auto">Un recorrido intensivo desde el diagnóstico hasta la creación de tu propia marca digital.</p>
+            </div>
+
+            <div className="max-w-5xl mx-auto">
+              <div className="space-y-4">
+                {[
+                  { icon: Users, time: '25 min', activity: 'Bienvenida y Diagnóstico', objective: 'Evaluar conocimientos previos', desc: 'Dinámica de presentación y breve test sobre uso de smartphones.', resources: 'Facilitador, lápiz' },
+                  { icon: Zap, time: '45 min', activity: 'Transformación e Industria 4.0', objective: 'Contextualizar el entorno actual', desc: 'Charla participativa sobre tendencias tecnológicas y nuevos modelos de negocio.', resources: 'PPTX, Proyector' },
+                  { icon: Cloud, time: '60 min', activity: 'Dominio de Android y Nube', objective: 'Optimizar el uso del dispositivo móvil', desc: 'Configuración de cuentas y respaldo de archivos en la nube (Google Drive/Photos).', resources: 'Smartphone, Internet' },
+                  { icon: Calendar, time: '45 min', activity: 'Organización Digital', objective: 'Mejorar la gestión del tiempo', desc: 'Uso de Google Calendar y Keep para organizar tareas del emprendimiento.', resources: 'Smartphone' },
+                  { icon: ShieldCheck, time: '40 min', activity: 'Seguridad y Privacidad', objective: 'Proteger la información del negocio', desc: 'Configuración de verificación en dos pasos y contraseñas seguras.', resources: 'PPTX' },
+                  { icon: Share2, time: '90 min', activity: 'Redes Digitales para Negocios', objective: 'Crear presencia de marca', desc: 'Taller práctico: Diferencias y creación de perfiles en Facebook, IG, TikTok y X.', resources: 'Smartphone' },
+                  { icon: Image, time: '60 min', activity: 'Edición Básica de Imágenes', objective: 'Mejorar la estética visual', desc: 'Uso de herramientas nativas y apps sencillas para retocar fotos de productos.', resources: 'Smartphone, Apps' },
+                  { icon: BookOpen, time: '25 min', activity: 'Lineamientos Proyecto Final', objective: 'Establecer metas de cierre', desc: 'Explicación de los requisitos para el proyecto enfocado a su idea de negocio.', resources: 'Hojas guía' },
+                ].map((item, idx) => (
+                  <div key={idx} className="group flex flex-col md:flex-row gap-6 p-6 bg-[#F9F8F4] rounded-xl border border-stone-100 hover:border-nobel-gold/30 hover:shadow-md transition-all duration-300">
+                    <div className="flex-shrink-0 w-24 h-24 bg-white rounded-lg border border-stone-200 flex flex-col items-center justify-center text-center shadow-sm group-hover:bg-nobel-gold group-hover:text-white transition-colors relative overflow-hidden">
+                      <item.icon size={24} className="mb-1 opacity-40 group-hover:opacity-100 transition-opacity" />
+                      <span className="text-xs font-bold uppercase tracking-tighter opacity-70">Tiempo</span>
+                      <span className="text-xl font-serif font-bold italic">{item.time}</span>
+                    </div>
+                    <div className="flex-grow">
+                      <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                        <h3 className="text-xl font-serif font-bold text-stone-900">{item.activity}</h3>
+                        <span className="hidden md:block text-stone-300">•</span>
+                        <span className="text-xs font-bold text-nobel-gold uppercase tracking-widest">{item.objective}</span>
+                      </div>
+                      <p className="text-stone-600 text-sm leading-relaxed mb-4">{item.desc}</p>
+                      <div className="flex flex-wrap gap-4">
+                        <div className="flex items-center gap-1.5 text-xs text-stone-400">
+                          <Zap size={12} className="text-nobel-gold" />
+                          <span className="font-bold uppercase tracking-tight">Recursos:</span> {item.resources}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Team */}
+
         <section id="facilitadores" className="py-24 bg-[#F5F4F0] border-t border-stone-300">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
