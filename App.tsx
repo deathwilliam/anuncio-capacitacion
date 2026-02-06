@@ -228,7 +228,7 @@ const App: React.FC = () => {
             </div>
             <div className="md:col-span-7 flex flex-col justify-center">
               <div className="inline-block mb-3 text-xs font-bold tracking-widest text-stone-500 uppercase">IMPACTO COMUNITARIO</div>
-              <h2 className="font-serif text-4xl mb-6 text-stone-900">Empoderamiento Juvenil</h2>
+              <h2 className="font-serif text-4xl mb-6 text-stone-900">Empoderamiento Emprendedor</h2>
               <p className="text-lg text-stone-600 mb-6 leading-relaxed">
                 Esta jornada es más que una clase de tecnología; es un espacio de networking donde los participantes de la zona pueden colaborar, compartir ideas y fortalecer el tejido empresarial local.
               </p>
@@ -273,7 +273,7 @@ const App: React.FC = () => {
               />
             </div>
             <div className="text-center mt-12">
-              <p className="text-stone-500 italic">Comprometidos con el desarrollo del potencial de la juventud salvadoreña.</p>
+              <p className="text-stone-500 italic">Comprometidos con el desarrollo del potencial de la comunidad salvadoreña.</p>
             </div>
           </div>
         </section>
